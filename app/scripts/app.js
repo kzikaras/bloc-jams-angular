@@ -15,7 +15,7 @@
                 url: '/album',
                 templateUrl: '/templates/album.html'
             })
-            .collection('collection',{
+            .state('collection',{
                 url: '/collection',
                 templateUrl: 'templates/collection.html'
             });
