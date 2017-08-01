@@ -1,4 +1,5 @@
 (function() {
+    
     function config($stateProvider, $locationProvider){
         $locationProvider
             .html5Mode({
@@ -15,7 +16,7 @@
                 url: '/album',
                 templateUrl: '/templates/album.html'
             })
-            .collection('collection',{
+            .state('collection',{
                 url: '/collection',
                 templateUrl: 'templates/collection.html'
             });
