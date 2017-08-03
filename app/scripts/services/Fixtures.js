@@ -57,13 +57,13 @@
         };
 
         Fixtures.getAlbum = function() {
-            return albumPicasso;
+            return vanHalen;
 		};
 		
 		Fixtures.getCollection = function(numberOfAlbums) {
 			albumArray = [];
 			for (var i = 0;i < numberOfAlbums;i++) {
-				albumArray.push(angular.copy(albumPicasso));
+				albumArray.push(angular.copy(vanHalen));
 			}
 			return albumArray;
 		};
