@@ -19,7 +19,9 @@
             templateUrl: '/templates/directives/seek_bar.html',
             replace: true,
             restrict: 'E',
-            scope: { },
+            scope: { 
+                onChange: '&'
+            },
             link: function(scope, element, attirbutes) {
                 scope.value = 0;
                 scope.max = 100;
@@ -28,6 +30,14 @@
                  * @desc holds the seek bar element
                  */
                 var seekBar = $(element);
+
+                attributes.$observe('value', function(newValue) {
+                    scope.value = newValue;
+                });
+
+                attributes.$observe('max', function(newValue) {
+                    scope.max = newValue;
+                });
 
                 /**
                  * @desc creates a percentage that can be used to show the bar fill
@@ -55,6 +65,7 @@
                 scope.onClickSeekBar = function(event) {
                     var percent = calculatePercent(seekBar, event);
                     scope.value = percent * scope.max;
+                    notifyOnChange(scope.value);
                 };
 
                 /**
@@ -65,6 +76,7 @@
                         var percent = calculatePercent(seekBar, event);
                         scope.$apply(function() {
                             scope.value = percent * scope.max;
+                            notifyOnChange(scope.value);
                         });
                     });
 
@@ -72,6 +84,15 @@
                     $document.unbind('mousemove.thumb');
                     $document.unbind('mouseup.thumb');
                     });
+                };
+
+                /**
+                 * @desc notify onCHange that scope.value has changed
+                 */
+                var notifyOnChange = function() {
+                    if(typeof scope.onChange === 'function'){
+                        scope.onChange({value: newValue});
+                    }
                 };
 
                 /**
