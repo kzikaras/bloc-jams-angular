@@ -2,7 +2,7 @@
     function timecode() {
         return function(seconds) {
             var seconds = Number.parseFloat(seconds);
-
+            // add toTimer method
             var output = buzz.toTimer(seconds);
 
             return output;
