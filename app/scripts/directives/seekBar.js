@@ -22,7 +22,7 @@
             scope: { 
                 onChange: '&'
             },
-            link: function(scope, element, attirbutes) {
+            link: function(scope, element, attributes) {
                 scope.value = 0;
                 scope.max = 100;
 
@@ -89,7 +89,7 @@
                 /**
                  * @desc notify onCHange that scope.value has changed
                  */
-                var notifyOnChange = function() {
+                var notifyOnChange = function(newValue) {
                     if(typeof scope.onChange === 'function'){
                         scope.onChange({value: newValue});
                     }
