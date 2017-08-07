@@ -149,7 +149,7 @@
             }
         };
 
-        SongPlayer.volume = null;
+        SongPlayer.volume = 80;
     
         /**
          * @function setVolume
