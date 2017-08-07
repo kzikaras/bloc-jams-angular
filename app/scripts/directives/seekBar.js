@@ -87,7 +87,7 @@
                 };
 
                 /**
-                 * @desc notify onCHange that scope.value has changed
+                 * @desc notify onChange that scope.value has changed
                  */
                 var notifyOnChange = function(newValue) {
                     if(typeof scope.onChange === 'function'){

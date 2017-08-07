@@ -104,7 +104,8 @@
             song.playing = false;
         };
 
-        /**@method SongPlayer.previous
+        /**
+         * @method SongPlayer.previous
          * @desc function that will allow the user to skip to a previous song
          */
         SongPlayer.previous = function() {
@@ -120,6 +121,10 @@
             }
         };
 
+        /**
+         * @method SongPlayer.next
+         * @desc allows the user to skip to the next song
+         */
         SongPlayer.next = function() {
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
@@ -144,8 +149,25 @@
             }
         };
 
+        SongPlayer.volume = null;
+    
+        /**
+         * @function setVolume
+         * @desc sets the volume of the current song
+         * @param {number} volume
+         */
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+                SongPlayer.volume = volume;
+            }
+            
+        };
+
         return SongPlayer;
     }
+
+    
 
     angular
         .module('blocJams')
