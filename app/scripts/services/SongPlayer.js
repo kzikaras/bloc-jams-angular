@@ -150,6 +150,15 @@
         };
 
         SongPlayer.volume = 80;
+
+        if(currentBuzzObject) {
+            while(currentBuzzObject.isPlaying()) {
+                if(currentBuzzObject.ended()) {
+                    SongPlayer.next();
+                }
+            }
+            
+        }
     
         /**
          * @function setVolume
